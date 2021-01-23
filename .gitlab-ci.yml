@@ -10,7 +10,7 @@ build-image:
 
   script:
     - ./build.sh --tag:$CI_COMMIT_REF_NAME --registry:$CI_REGISTRY --organization:root
-    - docker push ${CI_REGISTRY_IMAGE}/che-devfile-registry:${CI_COMMIT_REF_NAME}
+    - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
 
   tags:
     - shell
