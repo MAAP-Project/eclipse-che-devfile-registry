@@ -11,7 +11,6 @@ build-image:
 
   script:
     - ./build.sh -t ${CI_COMMIT_REF_NAME} -r ${CI_REGISTRY} -o ${CI_PROJECT_NAMESPACE}
-    #- docker tag che-devfile-registry:$CI_COMMIT_REF_NAME ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
     - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
 
   tags:
