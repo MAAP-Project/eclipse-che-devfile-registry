@@ -14,7 +14,7 @@ spec:
   endpoints:
   - name: "jupyter"
     public: true
-    targetPort: 3101
+    targetPort: 3100
     attributes:
       protocol: http
       type: ide
@@ -37,6 +37,6 @@ spec:
          name: root
     #mountSources: true
     ports:
-        - exposedPort: 3101
+        - exposedPort: 3100
     memoryLimit: "1012M"
 
