@@ -1,0 +1,6 @@
+---
+displayName: "MAAP Vanilla"
+description: Stack with MAAP
+tags: ["Jupyter", "Vanilla"]
+icon: /images/dotnetcore.svg
+globalMemoryLimit: 2710Mi
