@@ -2,5 +2,5 @@
 displayName: "MAAP PLAnT Stable"
 description: Latest version of MAAP PLAnT
 tags: ["Python", "JupyterLab", "MAAP", "PLAnT"]
-icon: /images/dotnetcore.svg
+icon: /images/plant.jpg
 globalMemoryLimit: 2710Mi
