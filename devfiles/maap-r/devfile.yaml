@@ -1,0 +1,8 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: r-
+components:
+  - memoryLimit: 2Gi
+    type: cheEditor
+    reference: 'https://mas.maap-project.org/root/che-devfile-registry/-/raw/7.23.1-maap/devfiles/maap-r/impl.yaml'
+    alias: maap-jupyterlab

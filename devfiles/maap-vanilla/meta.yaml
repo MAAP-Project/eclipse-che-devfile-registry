@@ -1,6 +1,6 @@
 ---
-displayName: "MAAP Vanilla"
-description: Stack with MAAP
-tags: ["Jupyter", "Vanilla"]
+displayName: "MAAP Basic Stable"
+description: Latest version of MAAP Basic
+tags: ["JupyterLab", "Python", "MAAP"]
 icon: /images/dotnetcore.svg
 globalMemoryLimit: 2710Mi

@@ -1,6 +1,6 @@
 apiVersion: v2
 publisher: maap
-name: maap-jupyterlab-vanilla
+name: maap-jupyterlab-r
 version: latest
 type: Che Editor
 displayName: jupyterlab-ide
@@ -24,7 +24,7 @@ spec:
       path: /
   containers:
   - name: "maap-jupyter"
-    image: "mas.maap-project.org:5000/root/jupyter_image/vanilla:develop"
+    image: "mas.maap-project.org:5000/root/jupyter_image/r:develop-che7"
     env:
        - name: JUPYTER_NOTEBOOK_DIR
          value: /projects

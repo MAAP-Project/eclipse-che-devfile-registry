@@ -1,0 +1,42 @@
+apiVersion: v2
+publisher: maap
+name: maap-jupyterlab-vanilla
+version: latest
+type: Che Editor
+displayName: jupyterlab-ide
+title: Jupyterlab for MAAP ADE
+description: Jupyterlab for MAAP ADE
+icon: https://raw.githubusercontent.com/theia-ide/theia/master/logo/theia-logo-no-text-black.svg?sanitize=true
+category: Editor
+repository: https://github.com/MAAP-Project/maap-jupyter-ide
+firstPublicationDate: "2019-03-07"
+spec:
+  endpoints:
+  - name: "jupyter"
+    public: true
+    targetPort: 3100
+    attributes:
+      protocol: http
+      type: ide
+      #secure: true
+      #cookiesAuthEnabled: true
+      #discoverable: false
+      path: /
+  containers:
+  - name: "maap-jupyter"
+    image: "mas.maap-project.org:5000/root/jupyter_image/vanilla:develop-che7"
+    env:
+       - name: JUPYTER_NOTEBOOK_DIR
+         value: /projects
+    volumes:
+       - mountPath: "/projects"
+         name: projects
+       - mountPath: "/.local"
+         name: local
+       - mountPath: "/root"
+         name: root
+    #mountSources: true
+    ports:
+        - exposedPort: 3100
+    memoryLimit: "1012M"
+
