@@ -20,7 +20,7 @@ spec:
       type: ide
       #secure: true
       #cookiesAuthEnabled: true
-      #discoverable: false
+      discoverable: false
       path: /
   containers:
   - name: "maap-jupyter"
