@@ -36,6 +36,8 @@ spec:
        - mountPath: "/root"
          name: root
     #mountSources: true
+    securityContext:
+      allowPrivilegeEscalation: true
     ports:
         - exposedPort: 3100
     memoryLimit: "1012M"
