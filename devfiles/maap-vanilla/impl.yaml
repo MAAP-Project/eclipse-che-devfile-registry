@@ -18,8 +18,10 @@ spec:
     attributes:
       protocol: http
       type: ide
-      secure: true
-      cookiesAuthEnabled: true
+      securityContext:
+        privileged: true
+      #secure: true
+      #cookiesAuthEnabled: true
       discoverable: false
       path: /
   containers:
