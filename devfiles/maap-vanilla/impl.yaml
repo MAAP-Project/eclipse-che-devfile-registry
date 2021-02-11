@@ -28,8 +28,6 @@ spec:
     env:
        - name: JUPYTER_NOTEBOOK_DIR
          value: /projects
-       - name: DEVFILE_VERSION
-         value: dev3.0
     volumes:
        - mountPath: "/projects"
          name: projects
@@ -38,8 +36,6 @@ spec:
        - mountPath: "/root"
          name: root
     #mountSources: true
-    securityContext:
-      privileged: true
     ports:
         - exposedPort: 3100
     memoryLimit: "1012M"
