@@ -19,7 +19,7 @@ spec:
       protocol: http
       type: ide
       secure: true
-      #cookiesAuthEnabled: true
+      cookiesAuthEnabled: true
       discoverable: false
       path: /
   containers:
