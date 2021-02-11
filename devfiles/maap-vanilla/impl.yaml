@@ -40,10 +40,6 @@ spec:
     #mountSources: true
     securityContext:
       privileged: true
-      capabilities:
-        add:
-          - SYS_ADMIN
-      allowPrivilegeEscalation: true
     ports:
         - exposedPort: 3100
     memoryLimit: "1012M"
