@@ -18,8 +18,8 @@ spec:
     attributes:
       protocol: http
       type: ide
-      secure: true
-      cookiesAuthEnabled: true
+      #secure: true
+      #cookiesAuthEnabled: true
       discoverable: false
       path: /
   containers:
@@ -36,8 +36,8 @@ spec:
        - mountPath: "/root"
          name: root
     #mountSources: true
-    securityContext:
-      privileged: true
+    #securityContext:
+      #privileged: true
     ports:
         - exposedPort: 3100
     memoryLimit: "1012M"
