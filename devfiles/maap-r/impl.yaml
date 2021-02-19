@@ -24,7 +24,7 @@ spec:
       path: /
   containers:
   - name: "maap-jupyter"
-    image: "mas.maap-project.org:5000/root/jupyter_image/r:develop-che7"
+    image: "mas.maap-project.org:5000/root/jupyter_image/r:develop"
     env:
        - name: JUPYTER_NOTEBOOK_DIR
          value: /projects
