@@ -4,5 +4,5 @@ metadata:
 components:
   - memoryLimit: 2Gi
     type: cheEditor
-    reference: 'https://mas.maap-project.org/root/che-devfile-registry/-/raw/7.23.1-maap/devfiles/maap-vanilla/impl.yaml'
+    reference: 'https://raw.githubusercontent.com/MAAP-Project/eclipse-che-devfile-registry/7.25.2-maap/devfiles/maap-vanilla/impl.yaml'
     alias: maap-jupyterlab
