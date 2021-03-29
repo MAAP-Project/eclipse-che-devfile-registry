@@ -1,0 +1,6 @@
+---
+displayName: "MAAP RSGISLib Stable"
+description: Latest version of MAAP RSGISLib.
+tags: ["JupyterLab", "Python", "MAAP"]
+icon: /images/rsgislib.png
+globalMemoryLimit: 2810Mi
