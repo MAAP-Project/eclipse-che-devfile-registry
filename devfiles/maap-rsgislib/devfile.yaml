@@ -1,8 +1,50 @@
 apiVersion: 1.0.0
 metadata:
-  generateName: basic-
+  generateName: rsgslib-
+attributes:
+  editorFree: 'true'
 components:
-  - memoryLimit: 2Gi
-    type: cheEditor
-    reference: 'https://raw.githubusercontent.com/MAAP-Project/eclipse-che-devfile-registry/7.25.2-maap/devfiles/maap-rsgislib/impl.yaml'
+  - endpoints:
+      - attributes:
+          type: ide
+          discoverable: 'false'
+          path: /
+          protocol: http
+          public: 'true'
+        name: jupyter
+        port: 3100
+    referenceContent: |
+      kind: List
+      items:
+        - apiVersion: v1
+          kind: Pod
+          metadata:
+            name: ws
+            labels:
+              name: ws
+          spec:
+           containers: 
+            - name: jupyter
+              image: 'mas.maap-project.org:5000/root/jupyter-image/rsgislib:develop'
+              imagePullPolicy: Always
+              resources:
+                limits:
+                  memory: 2048Mi
+        - apiVersion: v1
+          kind: Service
+          metadata:
+            name: ws
+          spec:
+            type: NodePort
+            ports:
+              - port: 22
+          selector:
+            name: ws
+    type: kubernetes
     alias: maap-jupyterlab
+    env:
+      - value: WS_JUPYTER
+        name: MACHINE_NAME
+
+
+
