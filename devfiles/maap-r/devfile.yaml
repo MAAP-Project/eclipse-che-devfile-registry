@@ -25,7 +25,7 @@ components:
           spec:
            containers: 
             - name: jupyter
-              image: 'registry.nasa.maap.xyz/root/jupyter_image/vanilla:develop'
+              image: 'mas.maap-project.org:5000/root/jupyter-image/r:develop'
               imagePullPolicy: Always
               resources:
                 limits:
