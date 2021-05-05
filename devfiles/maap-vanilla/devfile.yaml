@@ -31,11 +31,11 @@ components:
                 emptyDir: {}
             containers: 
               - name: jupyter
-                image: 'registry.nasa.maap.xyz/root/jupyter_image/vanilla:develop'
+                image: 'mas.maap-project.org:5000/root/jupyter-image/vanilla:develop'
                 imagePullPolicy: Always
                 resources:
                   limits:
-                    memory: 12288Mi
+                    memory: 4096Mi
                 volumeMounts:
                   - name: ws-pvc
                     mountPath: /projects

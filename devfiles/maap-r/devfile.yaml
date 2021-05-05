@@ -9,8 +9,8 @@ components:
           type: ide
           discoverable: 'false'
           path: /
-          protocol: http
           public: 'true'
+          protocol: http
         name: jupyter
         port: 3100
     referenceContent: |
@@ -21,29 +21,78 @@ components:
           metadata:
             name: ws
             labels:
-              name: ws
+              ssh: enabled
           spec:
-           containers: 
-            - name: jupyter
-              image: 'mas.maap-project.org:5000/root/jupyter-image/r:develop'
-              imagePullPolicy: Always
-              resources:
-                limits:
-                  memory: 2048Mi
+            volumes:
+              - name: ws-pvc
+                persistentVolumeClaim:
+                  claimName: ws
+              - name: s3fs-volume
+                emptyDir: {}
+            containers: 
+              - name: jupyter
+                image: 'mas.maap-project.org:5000/root/jupyter-image/r:develop'
+                imagePullPolicy: Always
+                resources:
+                  limits:
+                    memory: 4096Mi
+                volumeMounts:
+                  - name: ws-pvc
+                    mountPath: /projects
+                    subPath: projects
+                  - name: s3fs-volume
+                    mountPath: /projects/.jupyter
+                    subPath: dotjupyter
+                  - name: s3fs-volume
+                    mountPath: /projects/my-private-bucket
+                    subPath: my-private-bucket
+                    mountPropagation: HostToContainer
+                  - name: s3fs-volume
+                    mountPath: /projects/my-public-bucket
+                    subPath: my-public-bucket
+                    mountPropagation: HostToContainer
+                  - name: s3fs-volume
+                    mountPath: /projects/shared-buckets
+                    subPath: shared-buckets
+                    mountPropagation: HostToContainer
+              - name: s3fs
+                image: 'registry.nasa.maap.xyz/root/jupyter_image/gchang-s3fs-sidecar:latest'
+                imagePullPolicy: Always
+                resources:
+                  limits:
+                    memory: 256Mi
+                securityContext:
+                  privileged: true
+                env:
+                  - name: MAAP_ENVIRONMENT
+                    value: 'ops'
+                volumeMounts:
+                  - name: s3fs-volume
+                    mountPath: /my-public-bucket
+                    subPath: my-public-bucket
+                    mountPropagation: Bidirectional
+                  - name: s3fs-volume
+                    mountPath: /my-private-bucket
+                    subPath: my-private-bucket
+                    mountPropagation: Bidirectional
+                  - name: s3fs-volume
+                    mountPath: /shared-buckets
+                    subPath: shared-buckets
+                    mountPropagation: Bidirectional
+        - apiVersion: v1
+          kind: PersistentVolumeClaim
+          metadata:
+            name: ws
+          spec:
+            storageClassName: nfs-client-che
         - apiVersion: v1
           kind: Service
           metadata:
-            name: ws
+            generateName: sshport-
           spec:
             type: NodePort
             ports:
               - port: 22
           selector:
-            name: ws
+            ssh: enabled
     type: kubernetes
-    alias: maap-jupyterlab
-    env:
-      - value: WS_JUPYTER
-        name: MACHINE_NAME
-
-
