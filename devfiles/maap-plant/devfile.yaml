@@ -56,7 +56,7 @@ components:
                     subPath: shared-buckets
                     mountPropagation: HostToContainer
               - name: s3fs
-                image: 'registry.nasa.maap.xyz/root/jupyter_image/gchang-s3fs-sidecar:latest'
+                image: 'mas.maap-project.org:5000/root/che-sidecar-s3fs:master'
                 imagePullPolicy: Always
                 resources:
                   limits:
