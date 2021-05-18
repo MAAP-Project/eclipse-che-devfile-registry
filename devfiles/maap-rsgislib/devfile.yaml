@@ -63,9 +63,6 @@ components:
                     memory: 256Mi
                 securityContext:
                   privileged: true
-                env:
-                  - name: MAAP_ENVIRONMENT
-                    value: 'ops'
                 volumeMounts:
                   - name: s3fs-volume
                     mountPath: /my-public-bucket
