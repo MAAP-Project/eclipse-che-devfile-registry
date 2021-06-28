@@ -31,7 +31,7 @@ components:
                 emptyDir: {}
             containers: 
               - name: jupyter
-                image: 'mas.maap-project.org:5000/root/jupyter-image/plant:develop'
+                image: 'mas.maap-project.org:5000/root/jupyter-image/plant:stable'
                 imagePullPolicy: Always
                 resources:
                   limits:
